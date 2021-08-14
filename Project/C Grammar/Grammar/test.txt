@@ -1,0 +1,87 @@
+h=1;
+if (3 >= 3)
+{
+	3-4*9/3;
+	2*(2-3);
+	h=h+1;
+}
+
+h=h+1;
+while (1)
+{
+	1+1;
+	1+2*3+7-25/5;
+	break;
+}
+
+if((1&&1)*(1&&0))
+{
+	return 1;
+}
+else
+{
+	return 0||1;
+}
+
+a=1;
+a=a+4;
+
+c=3;
+if (4 == 3)
+{
+    c=c+1;
+}
+
+while(4 != 6)
+{
+    break;
+}
+
+b=2;
+a=10;
+b=b+a;
+-80;
++42;
+
+t=0;
+for(x=3;x>0;x=x-1)
+{
+	t=t+x;
+}
+
+u=3;
+do
+{
+	u=u-1;
+}while(u>0);
+
+g=1;
+do
+{
+	g=1+1;
+}while(g==1);
+
+k=0;
+function foo1(j)
+{
+	j=j*2;
+	return j;
+}
+k=foo1(10)/2;
+k=foo1(k-5);
+
+z=0;
+switch(z)
+{
+	case 0:
+		z=2;
+		break;
+	case 1:
+		z=3;
+		break;
+	default:
+		z=4;
+		break;
+}
+
+1/0;

@@ -1,0 +1,78 @@
+﻿Build started 04-Mar-21 09:34:46 PM.
+Logging verbosity is set to: Normal.     1>Project "C:\Users\lambr\source\repos\Grammar\Grammar\Grammar.vcxproj" on node 2 (Rebuild target(s)).
+     1>_PrepareForClean:
+         Deleting file "Debug\Grammar.tlog\Grammar.lastbuildstate".
+       InitializeBuildStatus:
+         Creating "Debug\Grammar.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       BisonTarget:
+         Process "Grammar.y" bison file
+         cmd.exe /D /C "C:\Users\lambr\AppData\Local\Temp\tmpea55428295b74e5faad69f62505c8e7a.cmd"
+         
+         start /B /WAIT /D "C:\Users\lambr\source\repos\Grammar\Grammar\" win_bison.exe --output="Grammar.tab.cpp" --defines="Grammar.tab.h"  "Grammar.y"
+         exit /b %errorlevel%
+       FlexTarget:
+         Process "Grammar.l" flex file
+         cmd.exe /D /C "C:\Users\lambr\AppData\Local\Temp\tmp4350c01dee474a1c9a17f9983e7c1903.cmd"
+         
+         start /B /WAIT /D "C:\Users\lambr\source\repos\Grammar\Grammar\" win_flex.exe --outfile="Grammar.flex.cpp" --wincompat  "Grammar.l"
+         exit /b %errorlevel%
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\bin\HostX86\x86\CL.exe /c /ZI /JMC /nologo /W3 /WX- /diagnostics:column /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /permissive- /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc142.pdb" /Gd /TP /analyze- /FC /errorReport:prompt Grammar.flex.cpp Grammar.tab.cpp main.cpp STNode.cpp SymbolNodes.cpp SymbolTable.cpp
+         Grammar.flex.cpp
+     1>C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\stdint.h(49,1): warning C4005: 'INT8_MIN': macro redefinition
+       C:\Users\lambr\source\repos\Grammar\Grammar\Grammar.flex.cpp(59): message : see previous definition of 'INT8_MIN'
+     1>C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\stdint.h(50,1): warning C4005: 'INT16_MIN': macro redefinition
+       C:\Users\lambr\source\repos\Grammar\Grammar\Grammar.flex.cpp(62): message : see previous definition of 'INT16_MIN'
+     1>C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\stdint.h(51,1): warning C4005: 'INT32_MIN': macro redefinition
+       C:\Users\lambr\source\repos\Grammar\Grammar\Grammar.flex.cpp(65): message : see previous definition of 'INT32_MIN'
+     1>C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\stdint.h(53,1): warning C4005: 'INT8_MAX': macro redefinition
+       C:\Users\lambr\source\repos\Grammar\Grammar\Grammar.flex.cpp(68): message : see previous definition of 'INT8_MAX'
+     1>C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\stdint.h(54,1): warning C4005: 'INT16_MAX': macro redefinition
+       C:\Users\lambr\source\repos\Grammar\Grammar\Grammar.flex.cpp(71): message : see previous definition of 'INT16_MAX'
+     1>C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\stdint.h(55,1): warning C4005: 'INT32_MAX': macro redefinition
+       C:\Users\lambr\source\repos\Grammar\Grammar\Grammar.flex.cpp(74): message : see previous definition of 'INT32_MAX'
+     1>C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\stdint.h(57,1): warning C4005: 'UINT8_MAX': macro redefinition
+       C:\Users\lambr\source\repos\Grammar\Grammar\Grammar.flex.cpp(77): message : see previous definition of 'UINT8_MAX'
+     1>C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\stdint.h(58,1): warning C4005: 'UINT16_MAX': macro redefinition
+       C:\Users\lambr\source\repos\Grammar\Grammar\Grammar.flex.cpp(80): message : see previous definition of 'UINT16_MAX'
+     1>C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\stdint.h(59,1): warning C4005: 'UINT32_MAX': macro redefinition
+       C:\Users\lambr\source\repos\Grammar\Grammar\Grammar.flex.cpp(83): message : see previous definition of 'UINT32_MAX'
+         Grammar.tab.cpp
+     1>C:\Users\lambr\source\repos\Grammar\Grammar\Grammar.tab.cpp(212,7): warning C4065: switch statement contains 'default' but no 'case' labels
+         main.cpp
+         STNode.cpp
+         SymbolNodes.cpp
+         SymbolTable.cpp
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\bin\HostX86\x86\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\lambr\source\repos\Grammar\Debug\Grammar.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG:FASTLINK /PDB:"C:\Users\lambr\source\repos\Grammar\Debug\Grammar.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\lambr\source\repos\Grammar\Debug\Grammar.lib" /MACHINE:X86 Debug\Grammar.flex.obj
+         Debug\Grammar.tab.obj
+         Debug\main.obj
+         Debug\STNode.obj
+         Debug\SymbolNodes.obj
+         Debug\SymbolTable.obj
+         Grammar.vcxproj -> C:\Users\lambr\source\repos\Grammar\Debug\Grammar.exe
+       FinalizeBuildStatus:
+         Deleting file "Debug\Grammar.tlog\unsuccessfulbuild".
+         Touching "Debug\Grammar.tlog\Grammar.lastbuildstate".
+     1>Done Building Project "C:\Users\lambr\source\repos\Grammar\Grammar\Grammar.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+       "C:\Users\lambr\source\repos\Grammar\Grammar\Grammar.vcxproj" (Rebuild target) (1) ->
+       (ClCompile target) -> 
+         C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\stdint.h(49,1): warning C4005: 'INT8_MIN': macro redefinition
+         C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\stdint.h(50,1): warning C4005: 'INT16_MIN': macro redefinition
+         C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\stdint.h(51,1): warning C4005: 'INT32_MIN': macro redefinition
+         C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\stdint.h(53,1): warning C4005: 'INT8_MAX': macro redefinition
+         C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\stdint.h(54,1): warning C4005: 'INT16_MAX': macro redefinition
+         C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\stdint.h(55,1): warning C4005: 'INT32_MAX': macro redefinition
+         C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\stdint.h(57,1): warning C4005: 'UINT8_MAX': macro redefinition
+         C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\stdint.h(58,1): warning C4005: 'UINT16_MAX': macro redefinition
+         C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\stdint.h(59,1): warning C4005: 'UINT32_MAX': macro redefinition
+         C:\Users\lambr\source\repos\Grammar\Grammar\Grammar.tab.cpp(212,7): warning C4065: switch statement contains 'default' but no 'case' labels
+
+    10 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:03.10

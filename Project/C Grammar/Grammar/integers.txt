@@ -1,0 +1,145 @@
+%verbose
+%language "C++"
+
+
+%{
+#include "Grammar.tab.h"
+#include <math.h>
+extern int yylex(yy::parser::semantic_type *yylval);
+extern int a, gravity, speedoflight;
+%}
+
+%union{
+	int i;
+	float f;
+}
+
+%start compileUnit
+%token <i> NUMBER
+%token <i> VARIABLE
+%token <i> GRAVITY
+%token <i> SPEEDOFLIGHT
+%token <i> SPEEDOFSOUND
+%right '='
+%left '|'              //nonassoc den mporei na efarmostei se ekfraseis alusidwta p.x. 5+3+2
+%left '^'
+%left '&'
+%nonassoc EQ_OP NE_OP
+%nonassoc '<' '>' LE_OP GE_OP
+%left '+' '-'
+%left '*' '/' '%'
+%nonassoc INC_OP DEC_OP
+%type <i> expression
+%type <i> constants
+
+%%
+
+compileUnit : statements
+			;
+
+statements : statement
+		   | statements statement
+		   ;
+
+statement : expression ';' { printf("Result: %d\n",$1); }
+		  | ';'
+		  ;
+
+constants : GRAVITY { $$ = 10; }                //in m/s
+		  | SPEEDOFLIGHT { $$ = 300000; }       //in m/s
+		  | SPEEDOFSOUND { $$ = 343; }          //in m/s
+		  ;
+
+expression : NUMBER { $$ = $1; }
+		   | constants
+		   | VARIABLE												//praksh me var
+		   | VARIABLE '=' expression { a = $$ = $3; }				//anathesh se var
+		   | '(' expression ')' { $$ = $2; }
+		   | expression '+' expression { $$ = $1 + $3; }
+		   | expression '-' expression { $$ = $1 - $3; }
+		   | expression '*' expression { $$ = $1 * $3; }
+		   | expression '/' expression { if ($3 == 0) { printf("Cannot divide by zero.\n"); exit(1); } else $$ = $1 / $3; }
+		   | expression '%' expression { $$ = $1 % $3; }
+		   | expression '>' expression { $$ = $1 > $3; }
+		   | expression '<' expression { $$ = $1 < $3; }
+		   | expression '|' expression { $$ = $1 | $3; }
+		   | expression '^' expression { $$ = $1 ^ $3; }
+		   | expression '&' expression { $$ = $1 & $3; }
+		   | expression EQ_OP expression { $$ = $1 == $3; }
+		   | expression NE_OP expression { $$ = $1 != $3; }
+		   | expression LE_OP expression { $$ = $1 <= $3; }
+		   | expression GE_OP expression { $$ = $1 >= $3; }
+		   | expression INC_OP { $$ = $1 + 1; }
+		   | expression DEC_OP { $$ = $1 - 1; }
+		   ;
+
+
+%%
+
+
+namespace yy{
+	void parser::error (const location_type& loc, const std::string& msg){
+		std::cerr << "error at " << loc << ": " << msg << std::endl;
+	}
+}
+
+
+
+%option noyywrap
+
+%{
+#include "Grammar.tab.h"
+#define YY_DECL int yylex(yy::parser::semantic_type *yylval)
+typedef yy::parser::token token;
+int a, gravity=10, speedoflight=300000, speedofsound=343;
+%}
+
+
+%%
+
+";" {return ';';}
+"+" {return '+';}
+"-" {return '-';}
+"*" {return '*';}
+"/" {return '/';}
+
+"%" {return '%';}
+"(" {return '(';}
+")" {return ')';}
+"=" {return '=';}
+"<" {return '<';}
+">" {return '>';}
+"&" {return '&';}
+"^" {return '^';}
+"|" {return '|';}
+
+"++" {return token::INC_OP;}
+"--" {return token::DEC_OP;}
+"<=" {return token::LE_OP;}
+">=" {return token::GE_OP;}
+"==" {return token::EQ_OP;}
+"!=" {return token::NE_OP;}
+
+
+"0"|[1-9][0-9]* {	yylval->i = atoi(yytext);
+					return token::NUMBER; }
+
+"a" { yylval->i = a;
+	  return token::VARIABLE; }
+
+"g" { yylval->i = gravity;
+	   return token::GRAVITY; }
+
+"c" { yylval->i = speedoflight;
+	   return token::SPEEDOFLIGHT; }
+
+"Vs" { yylval->i = speedoflight;
+	   return token::SPEEDOFSOUND; }
+
+[ \r\n\t]+ ;
+
+
+%%
+
+
+
