@@ -1,0 +1,9 @@
+﻿  Process "Grammar.y" bison file
+  Process "Grammar.l" flex file
+  Grammar.flex.cpp
+  Grammar.tab.cpp
+C:\Users\lambr\source\repos\Projects\P4\Grammar.tab.cpp(1022,5): warning C4065: switch statement contains 'default' but no 'case' labels
+C:\Users\lambr\source\repos\Projects\P4\Grammar.tab.cpp(1309,5): warning C4065: switch statement contains 'default' but no 'case' labels
+  main.cpp
+  Generating Code...
+  P4.vcxproj -> C:\Users\lambr\source\repos\Projects\Debug\P4.exe
